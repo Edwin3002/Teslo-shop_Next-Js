@@ -8,14 +8,15 @@ async function main() {
 
   // 1. Borrar registros previos
   // await Promise.all( [
-  // await prisma.productImage.deleteMany();
-  // await prisma.product.deleteMany();
-  // await prisma.category.deleteMany();
+  await prisma.user.deleteMany();
+  await prisma.productImage.deleteMany();
+  await prisma.product.deleteMany();
+  await prisma.category.deleteMany();
   // ]);
   
-  const { categories, products } = initialData;
+  const { categories, products, users } = initialData;
 
-
+await prisma.user.createMany({data: users});
   //  Categorias
   // {
   //   name: 'Shirt'
